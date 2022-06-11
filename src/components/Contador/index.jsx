@@ -1,30 +1,40 @@
 import { useState } from "react";
-import './styles.css';
+import { Container } from "../../Styles";
+import { Botao, Titulo, MensagemErro } from "./Styles";
 
 const Contador = () => {
     const [numero, setNumero] = useState(1);
+    const [erro, setErro] = useState(false);
 
     const alterarValor = () => {
         if (numero > 10) {
-            alert("Não é possível");
+            setErro(true);
             return;
         }
 
         setNumero(numero + 1)
     }
 
+    const zerarValor = () => {
+        setNumero(0);
+        setErro(false);
+    }
+
     return (
-        <div className="contador-wrapper">
-            <h3>Contador</h3>
+        <Container>
+            <Titulo>Contador</Titulo>
             {/* PROP: Parametros dos componentes React */}
+            {erro && (<MensagemErro>Não é possível acrescentar</MensagemErro>)}
+            <Botao onClick={() => alterarValor()}>Aumentar</Botao>
+            <Botao onClick={() => zerarValor()}>Zerar</Botao>
             <Texto valor={numero} />
-            <button onClick={() => alterarValor()}>Aumentar</button>
-        </div>
+           
+        </Container>
     )
 }
 
 const Texto = ({valor}) => {
-    return (<p>{valor}</p>)
+    return (<span>{valor}</span>)
 }
 
 export default Contador;
