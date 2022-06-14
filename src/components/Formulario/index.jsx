@@ -13,7 +13,7 @@ const Formulario = () => {
     const [nome, setNome] = useState();
     const [email, setEmail] = useState();
 
-    const alternarNome = (e) => {
+    const alterarNome = (e) => {
         setNome(e.target.value);
     }
 
@@ -23,7 +23,7 @@ const Formulario = () => {
             <InputWrapper>
                 <input
                     value={nome}
-                    onChange={e => alternarNome(e)}
+                    onChange={e => alterarNome(e)}
                     placeholder="Digite seu nome"
                 />
                 {nome}
