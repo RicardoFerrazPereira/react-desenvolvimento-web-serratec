@@ -1,12 +1,15 @@
-import Cabecalho from './components/Cabecalho';
-import Corpo from './components/Corpo';
 import './styles.css';
+import { Routes, Route } from "react-router-dom";
+import ArmazemSerratec from './pages/ArmazemSerratec';
+import Alunos from './pages/Alunos';
 
 function App() {
   return (
     <div className="container">
-      <Cabecalho></Cabecalho>
-      <Corpo></Corpo>
+      <Routes>
+        <Route path="/" element={<ArmazemSerratec />} />
+        <Route path="alunos" element={<Alunos />} />
+      </Routes>
     </div>
   );
 }

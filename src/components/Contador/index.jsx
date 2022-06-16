@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container } from "../../Styles";
-import { Botao, Titulo, MensagemErro } from "./Styles";
+import { Botao, Titulo, MensagemErro, BotaoZerar } from "./Styles";
+
 
 const Contador = () => {
     const [numero, setNumero] = useState(1);
@@ -26,7 +27,9 @@ const Contador = () => {
             {/* PROP: Parametros dos componentes React */}
             {erro && (<MensagemErro>Não é possível acrescentar</MensagemErro>)}
             <Botao onClick={() => alterarValor()}>Aumentar</Botao>
-            <Botao onClick={() => zerarValor()}>Zerar</Botao>
+            <BotaoZerar onClick={() => zerarValor()} variant="contained" 
+            disable={numero === 0}>Zerar</BotaoZerar>
+                    
             <Texto valor={numero} />
            
         </Container>

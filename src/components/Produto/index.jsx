@@ -9,6 +9,8 @@ const ProdutoWrapper = styled.div`
 
 const ImagemProduto = styled.img`
     width: 200px;
+    //width: 100%;
+    //height: 250px
     
 `;
 
