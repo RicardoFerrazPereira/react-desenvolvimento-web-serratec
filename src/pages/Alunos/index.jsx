@@ -1,11 +1,3 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -21,19 +13,21 @@ import carregandoAnimacao from '../../animations/loading.json';
 
 
 const Alunos = () => {
-    /*  const alunos = [
-          {
-              nome: "Ozzy",
-              idade: 20,
-              id: 1
-          },
-          {
-              nome: "Farrock",
-              idade: 10,
-              id: 2
-          }
-  
-      ]; */
+    /*  
+    const alunos = [
+      {
+        nome: "Ozzy",
+        idade: 20,
+        id: 1
+      },
+      {
+        nome: "Farrock",
+        idade: 10,
+        id: 2
+      }
+    
+    ];
+    */
     const [alunos, setAlunos] = useState([]);
     const [carregando, setCarregando] = useState(true);
 
@@ -42,10 +36,10 @@ const Alunos = () => {
         autoplay: true,
         animationData: carregandoAnimacao,
         rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice"
+            preserveAspectRatio: "xMidYMid slice"
         }
     };
-    
+
     // GET - pegar uma informação
     // POST - cadastrar/criar uma informação
     // PUT - alterar/editar uma informação
@@ -62,7 +56,7 @@ const Alunos = () => {
         if (alunos.length > 0) {
             setTimeout(() => {
                 setCarregando(false);
-            
+
             }, 3000)
         }
 
@@ -70,33 +64,13 @@ const Alunos = () => {
 
     return (
         <>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" sx={{ background: '#ff5555' }}>
-                    <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            News
-                        </Typography>
-                        <Button color="inherit">Login</Button>
-                    </Toolbar>
-                </AppBar>
-            </Box>
-
             <Container maxWidth="sm">
                 {
-                    carregando ? (<Lottie 
+                    carregando ? (<Lottie
                         options={defaultOptions}
                         height={400}
                         width={400}
-                      />) : (
+                    />) : (
 
                         <TableContainer component={Paper} sx={{ mt: 3 }}>
                             <Table sx={{ minWidth: 500 }} size="small" aria-label="a dense table">
